@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply relative z-1 bg-whiten font-satoshi text-base font-normal text-body;
+  }
+}
+
+@layer components {
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .chat-height {
+    @apply h-[calc(100vh_-_8.125rem)] lg:h-[calc(100vh_-_5.625rem)];
+  }
+
+  .inbox-height {
+    @apply h-[calc(100vh_-_8.125rem)] lg:h-[calc(100vh_-_5.625rem)];
+  }
+}
+
+/* third-party libraries CSS */
+
+.tableCheckbox:checked ~ div span {
+  @apply opacity-100;
+}
+
+/* tailwind.css */
+.react-datepicker {
+  @apply rounded-lg bg-white shadow-lg;
+}
+
+.react-datepicker__header {
+  @apply bg-blue-500 text-white;
+}
+
+.react-datepicker__day--selected {
+  @apply bg-blue-500 text-white;
+}
+
+.react-datepicker__day--keyboard-selected {
+  @apply bg-blue-700 text-white;
+}
+
+/* custom css */
+.text-color-primary-sm {
+  color: #4faac1;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-color-primary-sm-medium {
+  color: #4faac1;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-color-primary-xl-medium {
+  color: #4faac1;
+  font-weight: 500;
+  font-size: 1.375rem;
+  line-height: 1.75rem;
+}
+.text-color-gray-sm {
+  color: #898b9a;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-color-gray-base {
+  color: #898b9a;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.text-color-black-base-normal {
+  color: #1b2837;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.text-color-black-2xl {
+  color: #1b2837;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.text-color-black-3xl {
+  color: #1b2837;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 2.4rem;
+}
+
+.shadows-custom {
+  box-shadow: 0 0 12px 0 #4faac133;
+}
+
+.select__control {
+  padding: 7px 5px !important;
+  border-radius: 0.75rem !important;
+}
+.select__multi-value {
+  border-radius: 10px !important;
+  overflow: hidden;
+  background-color: #ecf3f4 !important;
+}
+.tags-status {
+  display: inline-block;
+  min-width: 100px;
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  text-align: center;
+  font-weight: 500;
+}
+/* custom ant */
+.custom-dragger {
+  width: 220px !important;
+  height: 300px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.ant-table-thead > tr > th {
+  color: #667085 !important;
+}
+
+.text-select {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+
