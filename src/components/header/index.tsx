@@ -4,48 +4,82 @@ import Image from "next/image";
 import DropdownNotification from "@/components/header/DropdownNotification";
 import DropdownUser from "@/components/header/DropdownUser";
 import { Dropdown, MenuProps } from "antd";
-const items: MenuProps["items"] = [
-  {
-    key: "1",
-    label: (
-      <div className="flex items-start">
-        <Image
-          src="/icons/lg-vn.png"
-          alt="lg-vn"
-          className="h-[23px] w-[33px]"
-          width={500}
-          height={500}
-        />
-        <span className="mx-2 text-sm font-medium text-[#1B2837]">
-          Tiếng việt
-        </span>
-      </div>
-    ),
-  },
-  {
-    key: "2",
-    label: (
-      <div className="flex items-start">
-        <Image
-          src="/icons/lg-eng.png"
-          alt="lg-eng"
-          className="h-[23px] w-[33px]"
-          width={500}
-          height={500}
-        />
-        <span className="mx-2 text-sm font-medium text-[#1B2837]">
-          Tiếng anh
-        </span>
-      </div>
-    ),
-  },
-];
+import React, { useEffect } from "react";
+import i18n from "@/utils/languages/i18";
+import { useTranslation } from "react-i18next";
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;
   setSidebarOpen: (arg0: boolean) => void;
 }) => {
+  const { t: trans } = useTranslation();
+  /* handle change language start*/
+  const [languageFlag, setLanguageFlag] = React.useState(
+    sessionStorage.getItem("flag") || "VNFlag",
+  );
+  const [language, setLanguage] = React.useState(
+    sessionStorage.getItem("language") || "vi",
+  );
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+    setLanguage(lng);
+  };
+
+  useEffect(() => {
+    sessionStorage.setItem("flag", languageFlag);
+    sessionStorage.setItem("language", language);
+    i18n.changeLanguage(language);
+  }, [languageFlag, language]);
+  const items: MenuProps["items"] = [
+    {
+      key: "1",
+      label: (
+        <div
+          className="flex items-start"
+          onClick={() => {
+            setLanguageFlag("VNFlag");
+            changeLanguage("vi");
+          }}
+        >
+          <Image
+            src="/icons/lg-vn.png"
+            alt="lg-vn"
+            className="h-[23px] w-[33px]"
+            width={500}
+            height={500}
+          />
+          <span className="mx-2 text-sm font-medium text-[#1B2837]">
+            Tiếng Việt
+          </span>
+        </div>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <div
+          className="flex items-start"
+          onClick={() => {
+            setLanguageFlag("USAFlag");
+            changeLanguage("en");
+          }}
+        >
+          <Image
+            src="/icons/lg-eng.png"
+            alt="lg-eng"
+            className="h-[23px] w-[33px]"
+            width={500}
+            height={500}
+          />
+          <span className="mx-2 text-sm font-medium text-[#1B2837]">
+            Tiếng Anh
+          </span>
+        </div>
+      ),
+    },
+  ];
+  /* handle change language end*/
   return (
-    <header className="sticky top-0 z-1 flex w-full bg-white drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none">
+    <header className="sticky top-0 z-10 flex w-full bg-white drop-shadow-1">
       <div className="flex flex-grow items-center justify-between px-4 py-2 shadow-2 md:px-6 2xl:px-11">
         <div className="flex items-center gap-2 sm:gap-4 lg:hidden">
           {/* <!-- Hamburger Toggle BTN --> */}
@@ -118,14 +152,16 @@ const Header = (props: {
           >
             <div className="flex cursor-pointer items-center">
               <Image
-                src="/icons/lg-vn.png"
-                alt="lg-vn"
+                src={`/icons/${language === "vi" && languageFlag === "VNFlag" ? "lg-vn" : "lg-eng"}.png`}
+                alt="language"
                 className="h-[23px] w-[33px]"
                 width={500}
                 height={500}
               />
               <span className="mx-1 text-base font-medium text-[#1B2837]">
-                Tiếng việt
+                {language === "vi" && languageFlag === "VNFlag"
+                  ? "Tiếng Việt"
+                  : "Tiếng Anh"}
               </span>
               <Image
                 src="/icons/ArrowDown.svg"

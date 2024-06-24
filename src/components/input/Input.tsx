@@ -21,9 +21,9 @@ const Input: React.FC<InputProps> = ({
       name: "default",
       value: {
         inputClass:
-          "block rounded-xl caret-[#4faac1] px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-[1.5px] border-gray-200 dark:border-gray-500 appearance-none dark:text-white dark:focus:border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 peer",
+          "block rounded-xl caret-[#4faac1] px-3 pb-2.5 pt-6 font-medium w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-[1.5px] border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-300 peer",
         labelClass:
-          "absolute text-sm text-gray-600 dark:text-gray-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto",
+          "absolute text-sm text-gray-600 duration-300 transform -translate-y-2 scale-75 top-4 z-10 origin-[0] start-3.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0.5 peer-focus:scale-75 peer-focus:-translate-y-2 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto",
       },
     },
 
@@ -31,7 +31,7 @@ const Input: React.FC<InputProps> = ({
       name: "success",
       value: {
         inputClass:
-          "block rounded-xl px-2.5 pb-2.5 pt-5 w-full text-sm text-green-900 bg-gray-50 dark:bg-green-700 border-[1.5px] border-green-200 dark:border-green-500 appearance-none dark:text-white dark:focus:border-green-300 focus:outline-none focus:ring-0 focus:border-green-300 peer",
+          "block rounded-xl px-2.5 pb-2.5 font-medium pt-5 w-full text-sm text-green-900 bg-gray-50 border-[1.5px] border-green-200 appearance-none dark:text-white focus:outline-none focus:ring-0 focus:border-green-300 peer",
         labelClass:
           "absolute text-sm text-green-600 dark:text-green-500 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto",
         messageColor:
@@ -61,11 +61,6 @@ const Input: React.FC<InputProps> = ({
             <input
               type={type}
               id={id}
-              onKeyPress={(event) => {
-                if (!/[0-9]/.test(event.key)) {
-                  event.preventDefault();
-                }
-              }}
               className={currentStatus.value.inputClass}
               placeholder=""
             />

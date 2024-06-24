@@ -145,3 +145,25 @@
   font-weight: 500;
 }
 
+.custom-select .ant-select-selector {
+  border: none !important; /* Remove border */
+  outline: none !important; /* Remove outline */
+  box-shadow: none !important; /* Remove box-shadow */
+  background-color: transparent !important;
+  padding: 0 0 0 2px !important;
+}
+
+.custom-select .ant-select-selector:hover, /* Remove hover styles */
+.custom-select .ant-select-selector:focus {
+  border-color: transparent !important; /* Ensure no border on focus */
+}
+
+.custom-select .ant-select-arrow {
+  color: #111a2c; /* Color of the dropdown arrow */
+  position: absolute;
+  right: 0 !important;
+  top: 40% !important;
+  margin-right: 8px;
+}
+
+

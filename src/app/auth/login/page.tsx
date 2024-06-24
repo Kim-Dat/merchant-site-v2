@@ -41,20 +41,28 @@ const LoginPage = () => {
               </h2>
               <div className="mt-2 flex gap-3 p-3">
                 {activeTab === 0 ? (
-                  <ButtonTab title={"Master Merchant"} />
+                  <div className="w-1/2">
+                    <ButtonTab title={"Master Merchant"} />
+                  </div>
                 ) : (
-                  <ButtonDefault
-                    title={"Master Merchant"}
-                    onClick={() => setActiveTab(0)}
-                  />
+                  <div className="w-1/2">
+                    <ButtonDefault
+                      title={"Master Merchant"}
+                      onClick={() => setActiveTab(0)}
+                    />
+                  </div>
                 )}
                 {activeTab === 1 ? (
-                  <ButtonTab title={"Sub Merchant"} />
+                  <div className="w-1/2">
+                    <ButtonTab title={"Sub Merchant"} />
+                  </div>
                 ) : (
-                  <ButtonDefault
-                    title={"Sub Merchant"}
-                    onClick={() => setActiveTab(1)}
-                  />
+                  <div className="w-1/2">
+                    <ButtonDefault
+                      title={"Sub Merchant"}
+                      onClick={() => setActiveTab(1)}
+                    />
+                  </div>
                 )}
               </div>
             </div>

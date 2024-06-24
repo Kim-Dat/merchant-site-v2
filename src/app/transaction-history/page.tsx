@@ -14,6 +14,7 @@ import Pagination from "@/components/pagination/Pagination";
 import ButtonPrimary from "@/components/button-primary/ButtonPrimary";
 import DateRangePicker from "@/components/DateRangePicker/DateRangePicker";
 import Image from "next/image";
+import Link from "next/link";
 
 // export const metadata: Metadata = {
 //   title: "Transaction History",
@@ -397,7 +398,19 @@ const TransactionHistory = () => {
         </div>
       </div>
     ),
-    action: "|",
+    action: (
+      <div>
+        <Link href="/transaction-history/info-transaction-history/1">
+          <Image
+            alt="option"
+            src={"/icons/dots-3.png"}
+            className="h-[15px] w-[15px]"
+            width={500}
+            height={500}
+          />
+        </Link>
+      </div>
+    ),
   }));
   return (
     <DefaultLayout>

@@ -25,7 +25,7 @@ const ButtonDefault: React.FC<ButtonDefaultProps> = ({
   return (
     <button
       type="button"
-      className="w-[100%] rounded-xl bg-[#E2E8ED99] p-2 hover:bg-gray-300"
+      className="h-full w-full rounded-xl bg-[#E2E8ED99] p-2 hover:bg-gray-300"
       onClick={onClick}
     >
       <span className="text-sm font-normal text-[#111A2C]">{title}</span>

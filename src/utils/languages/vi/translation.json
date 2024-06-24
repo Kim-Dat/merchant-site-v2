@@ -1,0 +1,46 @@
+{
+    "logout": "Đăng xuất",
+    "date": {
+        "day": "Ngày",
+        "week": "Tuần",
+        "month": "Tháng",
+        "year": "Năm"
+    },
+    "navigation": {
+        "home": "Trang chủ",
+        "account": "Tài khoản",
+        "transaction-history": "Lịch sử giao dịch",
+        "failed-transaction-history": "Lịch sử giao dịch thất bại",
+        "bank-account-lookup-history": "Lịch sử tra cứu TKNH",
+        "payment-link": "Yêu cầu thanh toán",
+        "bank-account": "Tài khoản ngân hàng",
+        "bank-account-list": "Danh sách tài khoản NH",
+        "bank-account-lookup": "Tra cứu tài khoản NH",
+        "payment-integrations": "Tích hợp thanh toán",
+        "withdraw": "Rút tiền",
+        "va-account": "Tài khoản VA",
+        "ibft-disbursement": "iBFT chi hộ",
+        "firm-banking": "Chi hộ 247",
+        "firm-banking-in-batches": "Chi hộ 247 theo lô",
+        "user-guide": "Hướng dẫn sử dụng"
+      },
+      "home": {
+        "total-transactions" : "Tổng giao dịch",
+        "total-revenue" : "Tổng doanh thu",
+        "pending-trading" : "Giao dịch chờ",
+        "total-balance" : "Tổng số dư",
+        "available-balance": "Số dư khả dụng",
+        "amount-waiting-to-be-received": "Số dư chờ nhận",
+        "freezing-balance": "Số dư đóng băng",
+        "withdrawals": "Rút tiền",
+        "recent-transactions": "Giao dịch gần đây",
+        "view-all": "Xem tất cả",
+        "deal-creation-time": "Thời gian",
+        "information": "Thông tin",
+        "amount": "Số tiền",
+        "the-transaction-is-completed": "Thời gian hoàn thành",
+        "transaction-id": "Mã giao dịch",
+        "action": "Thao tác",   
+        "filter-by": "Lọc theo"
+    }
+}

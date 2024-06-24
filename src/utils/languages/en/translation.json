@@ -1,0 +1,46 @@
+{
+    "logout": "Logout",
+    "date": {
+        "day": "day",
+        "week": "week",
+        "month": "month",
+        "year": "year"
+    },
+    "navigation": {
+        "home": "Home",
+        "account": "Accounts",
+        "transaction-history": "Transaction history",
+        "failed-transaction-history": "Failed transaction history",
+        "bank-account-lookup-history": "Bank account lookup history",
+        "payment-link": "Payment link",
+        "bank-account": "Bank account",
+        "bank-account-list": "Bank account list",
+        "bank-account-lookup": "Bank account lookup",
+        "payment-integrations": "Payment integrations",
+        "withdraw": "Withdraw",
+        "va-account": "VA account",
+        "ibft-disbursement": "iBFT Disbursement",
+        "firm-banking": "Firm banking",
+        "firm-banking-in-batches": "Firm banking in batches",
+        "user-guide": "User guide"
+    },
+    "home": {
+        "total-transactions" : "Total transactions",
+        "total-revenue" : "Total revenue",
+        "pending-trading" : "Pending trading",
+        "total-balance" : "Total balance",
+        "available-balance": "Available balance",
+        "amount-waiting-to-be-received": "Amount waiting to be received",
+        "freezing-balance": "Freezing balance",
+        "withdrawals": "Withdrawals",
+        "recent-transactions": "Recent transactions",
+        "view-all": "View all",
+        "deal-creation-time": "Deal creation time",
+        "information": "Information",
+        "amount": "Amount",
+        "the-transaction-is-completed": "The transaction is completed",
+        "transaction-id": "Transaction Id",
+        "action": "Action",   
+        "filter-by": "Filter by"
+    }
+}

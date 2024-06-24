@@ -73,7 +73,6 @@ const Pagination: React.FC<PaginationProps> = ({
       <div className="flex items-center">
         <Select
           defaultValue={itemsPerPage}
-          className="select-transparent"
           onChange={(value) => onItemsPerPageChange(Number(value))}
           options={[5, 10, 20, 50].map((number) => ({
             value: number,

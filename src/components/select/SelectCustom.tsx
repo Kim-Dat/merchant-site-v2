@@ -1,3 +1,5 @@
+"use client";
+import { Select } from "antd";
 import React from "react";
 
 interface Option {
@@ -10,31 +12,36 @@ interface SelectProps {
   label: string;
   option: Option[];
 }
-
 const SelectCustom: React.FC<SelectProps> = ({ label, option, isRequired }) => {
+  const handleChange = (value: string) => {
+    console.log(`selected ${value}`);
+  };
   return (
-    <div className="relative overflow-hidden rounded-xl border-[1.5px] border-gray-200">
-      <select
-        id="hs-floating-input-email-value"
-        required
-        className="peer block w-full rounded-xl border-none ps-3 text-sm font-medium text-[#1B2837] placeholder:text-transparent autofill:pb-2 autofill:pt-6 focus:border-gray-300 focus:pb-2 focus:pt-6 focus:ring-gray-300 disabled:pointer-events-none disabled:opacity-50 [&:not(:placeholder-shown)]:pb-2 [&:not(:placeholder-shown)]:pt-6"
-      >
-        {option.map((ot, key) => {
-          return (
-            <option key={key} value={ot.value}>
-              {ot.label}
-            </option>
-          );
-        })}
-      </select>
-      <label
-        htmlFor="hs-floating-input-email-value"
-        className="pointer-events-none absolute start-0 top-0 h-full origin-[0_0] truncate border border-transparent py-3 ps-2.5 text-sm transition duration-100  ease-in-out peer-focus:-translate-y-1.5 peer-focus:translate-x-0.5 peer-focus:scale-90 peer-focus:text-gray-500 peer-disabled:pointer-events-none peer-disabled:opacity-50 peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:translate-x-0.5 peer-[:not(:placeholder-shown)]:scale-90 peer-[:not(:placeholder-shown)]:text-gray-500"
-      >
-        {label}
-        {isRequired && <span className="ml-1 text-red">*</span>}
-      </label>
+    <div className="flex w-full justify-center">
+      <div className="relative w-full rounded-xl border border-gray-200 pb-1.5 pe-1 ps-3 pt-4">
+        <span className="absolute left-3.5 top-1.5 z-1 mt-1 text-[0.6562rem] font-normal leading-3">
+          {label}
+          {isRequired && <span className="text-[#FF3C3C]">*</span>}
+        </span>
+        <div className="w-full">
+          <Select
+            /* defaultValue="" */
+            style={{ minWidth: 200 }}
+            onChange={handleChange}
+            className="custom-select w-full bg-transparent"
+            options={option?.map((ot) => ({
+              value: ot.value,
+              label: (
+                <span className="text-sm font-medium text-[#1B2837]">
+                  {ot.label}
+                </span>
+              ),
+            }))}
+          />
+        </div>
+      </div>
     </div>
   );
 };
+
 export default SelectCustom;
