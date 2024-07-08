@@ -12,7 +12,7 @@ export const Stepper = (props: Props) => {
   const { step } = useStepperStore();
   return (
     <div>
-      <div className="w-full py-2">
+      <div className="w-full">
         <div className="relative flex w-full justify-around gap-5">
           <div className="absolute left-0 top-11.5  h-0.5 w-2/3 translate-x-1/4 border-b-2 border-dotted border-gray-300"></div>
           <div className="z-0 mt-8 flex  min-w-20 max-w-27 flex-col items-center">

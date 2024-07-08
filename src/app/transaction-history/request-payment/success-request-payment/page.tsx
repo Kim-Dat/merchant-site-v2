@@ -1,13 +1,12 @@
 "use client";
 
-import ButtonPrimary from "@/components/button-primary/ButtonPrimary";
-import DefaultLayout from "@/components/layout/DefaultLayout";
+import ButtonPrimary from "@/components/ui/buttons/button-primary/ButtonPrimary";
 import Lottie from "lottie-react";
 import React from "react";
 import successAnimation from "@/animation/icons/success-animation.json";
 const SuccessRequestPayment = () => {
   return (
-    <DefaultLayout>
+    <div>
       <div className="grid grid-cols-1 sm:grid-cols-4">
         <div className="shadows-custom flex h-50 items-center justify-center rounded-xl bg-white">
           <div className="text-center">
@@ -86,7 +85,7 @@ const SuccessRequestPayment = () => {
           </div>
         </div>
       </div>
-    </DefaultLayout>
+    </div>
   );
 };
 

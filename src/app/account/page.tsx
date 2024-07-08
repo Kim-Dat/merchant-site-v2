@@ -1,17 +1,25 @@
 "use client";
-import DefaultLayout from "@/components/layout/DefaultLayout";
-import ButtonAdd from "@/components/button-add/ButtonAdd";
-import ButtonExcel from "@/components/button-excel/ButtonExcel";
-import ButtonPrimary from "@/components/button-primary/ButtonPrimary";
+import ButtonAdd from "@/components/ui/buttons/button-add/ButtonAdd";
+import ButtonExcel from "@/components/ui/buttons/button-excel/ButtonExcel";
+import ButtonPrimary from "@/components/ui/buttons/button-primary/ButtonPrimary";
 import { createContext, useState, Dispatch, SetStateAction } from "react";
 import ChangePhone from "./change-phone/ChangePhone";
 import ChangeAuth from "./change-auth/ChangeAuth";
 import Image from "next/image";
-import ButtonDelete from "@/components/button-delete/ButtonDelete";
-import ButtonDefault from "@/components/buttonDefault/ButtonDefault";
-import Input from "@/components/input/Input";
-import Pagination from "@/components/pagination/Pagination";
-import { Table, Dropdown, MenuProps, TableProps, Tooltip, Modal } from "antd";
+import ButtonDelete from "@/components/ui/buttons/button-delete/ButtonDelete";
+import ButtonDefault from "@/components/ui/buttons/buttonDefault/ButtonDefault";
+import Input from "@/components/ui/inputs/input/Input";
+import Pagination from "@/components/ui/pagination/Pagination";
+import {
+  Table,
+  Dropdown,
+  MenuProps,
+  TableProps,
+  Tooltip,
+  Modal,
+  Popover,
+  Spin,
+} from "antd";
 
 interface IsCloseModalPhoneContextProps {
   setOpenModalChangePhone: Dispatch<SetStateAction<boolean>>;
@@ -156,6 +164,75 @@ const AccountPage = () => {
     setCurrentPage(1);
   };
 
+  const menuAction: MenuProps["items"] = [
+    {
+      label: (
+        <div className="flex items-center justify-between gap-3">
+          <span className="text-sm font-medium text-[#1B2837]">Khóa</span>
+          <div>
+            <Image
+              src={"/icons/ArrowRight.svg"}
+              alt="icon arrow right"
+              width={13}
+              height={13}
+            />
+          </div>
+        </div>
+      ),
+      key: "0",
+    },
+    {
+      label: (
+        <div className="flex items-center justify-between gap-3">
+          <span className="text-sm font-medium text-[#1B2837]">Sửa</span>
+          <div>
+            <Image
+              src={"/icons/ArrowRight.svg"}
+              alt="icon arrow right"
+              width={13}
+              height={13}
+            />
+          </div>
+        </div>
+      ),
+      key: "1",
+    },
+    {
+      label: (
+        <div className="flex items-center justify-between gap-3">
+          <span className="text-sm font-medium text-[#1B2837]">Xóa</span>
+          <div>
+            <Image
+              src={"/icons/ArrowRight.svg"}
+              alt="icon arrow right"
+              width={13}
+              height={13}
+            />
+          </div>
+        </div>
+      ),
+      key: "3",
+    },
+    {
+      label: (
+        <div className="flex items-center justify-between gap-3">
+          <span className="text-sm font-medium text-[#1B2837]">
+            Đổi mật khẩu
+          </span>
+          <div>
+            <Image
+              src={"/icons/ArrowRight.svg"}
+              alt="icon arrow right"
+              width={13}
+              height={13}
+            />
+          </div>
+        </div>
+      ),
+      key: "3",
+    },
+  ];
+
   const handleDataAccount = data.map((item) => ({
     ...item,
     name: (
@@ -168,58 +245,25 @@ const AccountPage = () => {
     status: typeStatus.filter((tst) => tst.status === item.status)[0]?.value,
     action: (
       <div>
-        <div className="flex flex-wrap gap-3  ">
-          <Tooltip title="Khóa tài khoản">
-            <button
-              className="rounded-lg bg-gray-300 p-1.5 hover:bg-gray-200"
-              onClick={() => setOpenModalBlockAccount(true)}
-            >
-              <Image
-                src="/icons/Password.svg"
-                alt="Password"
-                className="h-[20px] w-[20px]"
-                width={500}
-                height={500}
-              />
-            </button>
-          </Tooltip>
-          <Tooltip title="Chỉnh sửa tài khoản">
-            <button className="rounded-lg bg-gray-300 p-1.5 hover:bg-gray-200">
-              <Image
-                src="/icons/PencilSimple.svg"
-                alt="PencilSimple"
-                className="h-5 w-5"
-                width={500}
-                height={500}
-              />
-            </button>
-          </Tooltip>
-          <Tooltip title="Xóa tài khoản">
-            <button
-              className="rounded-lg bg-gray-300 p-1.5 hover:bg-gray-200"
-              onClick={() => setOpenModalDeleteAccount(true)}
-            >
-              <Image
-                src="/icons/Delete.svg"
-                alt="Delete"
-                className="h-5 w-5"
-                width={500}
-                height={500}
-              />
-            </button>
-          </Tooltip>
-        </div>
-        <button
-          className="text-color-primary-sm ms-4 mt-2"
-          onClick={() => setOpenModalChangePassSubUser(true)}
+        <Dropdown
+          menu={{ items: menuAction }}
+          trigger={["click"]}
+          arrow
+          placement="bottomLeft"
         >
-          Đổi mật khẩu
-        </button>
+          <Image
+            alt="option"
+            src={"/icons/dots-3.svg"}
+            className="cursor-pointer"
+            width={18}
+            height={18}
+          />
+        </Dropdown>
       </div>
     ),
   }));
   return (
-    <DefaultLayout>
+    <div>
       <div>
         <div className="shadows-custom rounded-lg bg-white px-6 py-4">
           <h2 className="text-2xl font-semibold text-[#202224]">
@@ -374,7 +418,6 @@ const AccountPage = () => {
           />
         </div>
       </div>
-
       {/* modal change phone start  */}
       <Modal
         title={null}
@@ -517,7 +560,7 @@ const AccountPage = () => {
         </div>
       </Modal>
       {/* modal block account end */}
-    </DefaultLayout>
+    </div>
   );
 };
 

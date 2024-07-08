@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
 import React, { useContext } from "react";
 import successAnimation from "@/animation/icons/success-animation.json";
-import ButtonPrimary from "@/components/button-primary/ButtonPrimary";
+import ButtonPrimary from "@/components/ui/buttons/button-primary/ButtonPrimary";
 import { useStepperStore } from "@/stores/stepper.store";
 import { isCloseModalChangeAuthContext } from "../../page";
 const CompleteChangeAuth = () => {

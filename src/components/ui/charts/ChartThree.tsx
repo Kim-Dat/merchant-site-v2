@@ -2,7 +2,7 @@
 import { ApexOptions } from "apexcharts";
 import React, { useState } from "react";
 import ReactApexChart from "react-apexcharts";
-import ButtonPrimary from "../button-primary/ButtonPrimary";
+import ButtonPrimary from "../ui/buttons/button-primary/ButtonPrimary";
 import { useTranslation } from "react-i18next";
 
 interface ChartThreeState {

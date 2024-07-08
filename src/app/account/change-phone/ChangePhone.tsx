@@ -1,5 +1,5 @@
 "use client";
-import { Stepper } from "@/components/stepper/Stepper";
+import { Stepper } from "@/components/ui/stepper/Stepper";
 import React from "react";
 import ChangePhoneForm from "./change-phone-form/ChangePhoneForm";
 

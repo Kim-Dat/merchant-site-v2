@@ -7,12 +7,12 @@ import { Dropdown, Table } from "antd";
 import { Moment } from "moment";
 /* component */
 import DefaultLayout from "@/components/layout/DefaultLayout";
-import InputSearch from "@/components/input-search/InputSearch";
-import ButtonExcel from "@/components/button-excel/ButtonExcel";
+import InputSearch from "@/components/ui/inputs/input-search/InputSearch";
+import ButtonExcel from "@/components/ui/buttons/button-excel/ButtonExcel";
 import FormatPrice from "@/components/format-price/FormatPrice";
-import Pagination from "@/components/pagination/Pagination";
-import ButtonPrimary from "@/components/button-primary/ButtonPrimary";
-import DateRangePicker from "@/components/DateRangePicker/DateRangePicker";
+import Pagination from "@/components/ui/pagination/Pagination";
+import ButtonPrimary from "@/components/ui/buttons/button-primary/ButtonPrimary";
+import DateRangePicker from "@/components/ui/DateRangePicker/DateRangePicker";
 import Image from "next/image";
 
 // export const metadata: Metadata = {
@@ -236,77 +236,68 @@ const FailTransactionHistory = () => {
     ),
   }));
   return (
-    <DefaultLayout>
-      <div>
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="shadows-custom flex gap-3 rounded-lg bg-white p-4 ">
-            <div className="flex items-center gap-1">
-              <span className="text-color-gray-sm">Tổng giao dịch:</span>
-              <h2 className="ms-1 text-xl font-semibold text-[#4FAAC1]">261</h2>
+    <div>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="shadows-custom flex gap-3 rounded-lg bg-white p-4 ">
+          <div className="flex items-center gap-1">
+            <span className="text-color-gray-sm">Tổng giao dịch:</span>
+            <h2 className="ms-1 text-xl font-semibold text-[#4FAAC1]">261</h2>
+          </div>
+        </div>
+        <div className="flex flex-wrap items-center gap-3 sm:flex-nowrap">
+          <div className="flex w-full items-end gap-3">
+            <div className="flex items-center gap-3">
+              <InputSearch title="Mã hóa đơn" placeholder="Nhập từ khoá ..." />
+              <InputSearch
+                title="Mã phiếu thu"
+                placeholder="Nhập từ khoá ..."
+              />
             </div>
           </div>
-          <div className="flex flex-wrap items-center gap-3 sm:flex-nowrap">
-            <div className="flex w-full items-end gap-3">
-              <div className="flex items-center gap-3">
-                <InputSearch
-                  title="Mã hóa đơn"
-                  placeholder="Nhập từ khoá ..."
-                />
-                <InputSearch
-                  title="Mã phiếu thu"
-                  placeholder="Nhập từ khoá ..."
-                />
-              </div>
+          <div className="flex w-full max-w-125 items-end gap-3 md:max-w-[351px]">
+            <div className="w-full">
+              <DateRangePicker
+                onDateChange={handleDateChange}
+                title="Bộ lọc tìm kiếm"
+              />
             </div>
-            <div className="flex w-full max-w-125 items-end gap-3 md:max-w-[351px]">
-              <div className="w-full">
-                <DateRangePicker
-                  onDateChange={handleDateChange}
-                  title="Bộ lọc tìm kiếm"
-                />
-              </div>
-              <div className="w-20">
-                <ButtonPrimary
-                  onClick={() => {}}
-                  title={"Tìm"}
-                  cl="rounded-md"
-                />
-              </div>
+            <div className="w-20">
+              <ButtonPrimary onClick={() => {}} title={"Tìm"} cl="rounded-md" />
             </div>
           </div>
         </div>
-        <div className="shadows-custom mt-3 overflow-hidden rounded-lg bg-white">
-          <div className="flex flex-wrap items-center justify-between gap-4 px-5 py-3">
-            <h3 className="text-lg font-medium text-[#101828]">
-              Lịch sử giao dịch thất bại
-            </h3>
-            <div className="ml-auto flex items-center gap-3">
-              <div>
-                <ButtonExcel />
-              </div>
+      </div>
+      <div className="shadows-custom mt-3 overflow-hidden rounded-lg bg-white">
+        <div className="flex flex-wrap items-center justify-between gap-4 px-5 py-3">
+          <h3 className="text-lg font-medium text-[#101828]">
+            Lịch sử giao dịch thất bại
+          </h3>
+          <div className="ml-auto flex items-center gap-3">
+            <div>
+              <ButtonExcel />
             </div>
           </div>
-          <hr />
-          <div className="overflow-x-auto">
-            <Table
-              columns={columns}
-              dataSource={handleDataTransHistory}
-              pagination={false}
-              scroll={{ x: "max-content" }}
-            />
-          </div>
         </div>
-        <div className="my-3">
-          <Pagination
-            totalItems={itemsp.length}
-            itemsPerPage={itemsPerPage}
-            currentPage={currentPage}
-            onPageChange={handlePageChange}
-            onItemsPerPageChange={handleItemsPerPageChange}
+        <hr />
+        <div className="overflow-x-auto">
+          <Table
+            columns={columns}
+            dataSource={handleDataTransHistory}
+            pagination={false}
+            scroll={{ x: "max-content" }}
           />
         </div>
       </div>
-    </DefaultLayout>
+      <div className="my-3">
+        <Pagination
+          totalItems={itemsp.length}
+          itemsPerPage={itemsPerPage}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+          onItemsPerPageChange={handleItemsPerPageChange}
+        />
+      </div>
+    </div>
   );
 };
 

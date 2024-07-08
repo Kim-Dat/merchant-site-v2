@@ -4,16 +4,11 @@ import DefaultLayout from "@/components/layout/DefaultLayout";
 
 export const metadata: Metadata = {
   title: "VA Account",
-  description:
-    "VA Account Page",
+  description: "VA Account Page",
 };
 
-const CalendarPage = () => {
-  return (
-    <DefaultLayout>
-      <Calendar />
-    </DefaultLayout>
-  );
+const Page = () => {
+  return <div>hello</div>;
 };
 
-export default CalendarPage;
+export default Page;

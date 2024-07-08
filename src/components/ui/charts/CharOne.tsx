@@ -1,4 +1,5 @@
 "use client";
+import formatPrice from "@/utils/formatFrice";
 import { ApexOptions } from "apexcharts";
 import React, { useState } from "react";
 import ReactApexChart from "react-apexcharts";
@@ -11,7 +12,7 @@ const options: ApexOptions = {
   },
   colors: ["#3C50E0", "#80CAEE"],
   chart: {
-    fontFamily: "Satoshi, sans-serif",
+    fontFamily: "inter",
     height: 335,
     type: "area",
     dropShadow: {
@@ -49,10 +50,10 @@ const options: ApexOptions = {
     width: [2, 2],
     curve: "straight",
   },
-  // labels: {
-  //   show: false,
-  //   position: "top",
-  // },
+  labels: {
+    show: false,
+    position: "top",
+  },
   grid: {
     xaxis: {
       lines: {
@@ -76,7 +77,7 @@ const options: ApexOptions = {
     strokeOpacity: 0.9,
     strokeDashArray: 0,
     fillOpacity: 1,
-    discrete: [],
+    /* discrete: [], */
     hover: {
       size: undefined,
       sizeOffset: 5,
@@ -107,7 +108,23 @@ const options: ApexOptions = {
       },
     },
     min: 0,
-    max: 70,
+    max: 7000000,
+    labels: {
+      formatter: (value) => {
+        return value > 0 ? `${(value / 1000000).toFixed(0)}M` : value;
+      },
+      style: {
+        fontSize: "12px",
+      },
+    },
+  },
+  tooltip: {
+    enabled: true,
+    y: {
+      formatter: (value) => {
+        return formatPrice(value);
+      },
+    },
   },
 };
 
@@ -122,8 +139,8 @@ const ChartOne: React.FC = () => {
   const [state, setState] = useState<ChartOneState>({
     series: [
       {
-        name: "Product One",
-        data: [23, 11, 22, 27, 13, 22, 37],
+        name: "Số tiền",
+        data: [1000000, 3123000, 6123000, 4123000, 5123000, 2193000, 3183000],
       },
     ],
   });
@@ -142,7 +159,7 @@ const ChartOne: React.FC = () => {
           options={options}
           series={state.series}
           type="area"
-          height={470}
+          height={487}
           width={"100%"}
         />
       </div>

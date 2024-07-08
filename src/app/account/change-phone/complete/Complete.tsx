@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import ButtonPrimary from "@/components/button-primary/ButtonPrimary";
+import ButtonPrimary from "@/components/ui/buttons/button-primary/ButtonPrimary";
 import Lottie from "lottie-react";
 import successAnimation from "@/animation/icons/success-animation.json";
 import { isCloseModalPhoneContext } from "../../page";

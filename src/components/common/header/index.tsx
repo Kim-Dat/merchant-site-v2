@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import DropdownNotification from "@/components/header/DropdownNotification";
-import DropdownUser from "@/components/header/DropdownUser";
+import DropdownNotification from "@/components/common/header/DropdownNotification";
+import DropdownUser from "@/components/common/header/DropdownUser";
 import { Dropdown, MenuProps } from "antd";
 import React, { useEffect } from "react";
 import i18n from "@/utils/languages/i18";

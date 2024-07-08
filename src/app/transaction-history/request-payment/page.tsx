@@ -1,8 +1,8 @@
 "use client";
-import SelectCustom from "@/app/test/page";
-import ButtonPrimary from "@/components/button-primary/ButtonPrimary";
-import InputNumber from "@/components/input-number/InputNumber";
-import Input from "@/components/input/Input";
+import SelectCustom from "@/components/ui/select/SelectCustom";
+import ButtonPrimary from "@/components/ui/buttons/button-primary/ButtonPrimary";
+import InputNumber from "@/components/ui/inputs/input-number/InputNumber";
+import Input from "@/components/ui/inputs/input/Input";
 import DefaultLayout from "@/components/layout/DefaultLayout";
 import { Checkbox } from "antd";
 import TextArea from "antd/es/input/TextArea";
@@ -19,7 +19,7 @@ const RequestPayment = () => {
     { value: "el", label: "Tiếng Anh" },
   ];
   return (
-    <DefaultLayout>
+    <div>
       <div>
         <h2 className="my-5 text-center text-2xl font-semibold text-[#202224]">
           Tạo yêu cầu thanh toán
@@ -93,7 +93,7 @@ const RequestPayment = () => {
           </div>
         </div>
       </div>
-    </DefaultLayout>
+    </div>
   );
 };
 

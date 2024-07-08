@@ -22,7 +22,10 @@
         "ibft-disbursement": "iBFT chi hộ",
         "firm-banking": "Chi hộ 247",
         "firm-banking-in-batches": "Chi hộ 247 theo lô",
-        "user-guide": "Hướng dẫn sử dụng"
+        "user-guide": "Hướng dẫn sử dụng",
+        "list-of-merchants": "Danh sách Merchant",
+        "Sign-up-for-payment-integration": "Đăng ký tích hợp thanh toán"
+        
       },
       "home": {
         "total-transactions" : "Tổng giao dịch",

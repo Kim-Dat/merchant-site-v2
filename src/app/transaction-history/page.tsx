@@ -6,13 +6,12 @@ import type { MenuProps, TableProps } from "antd";
 import { Dropdown, Table } from "antd";
 import { Moment } from "moment";
 /* component */
-import DefaultLayout from "@/components/layout/DefaultLayout";
-import InputSearch from "@/components/input-search/InputSearch";
-import ButtonExcel from "@/components/button-excel/ButtonExcel";
+import InputSearch from "@/components/ui/inputs/input-search/InputSearch";
+import ButtonExcel from "@/components/ui/buttons/button-excel/ButtonExcel";
 import FormatPrice from "@/components/format-price/FormatPrice";
-import Pagination from "@/components/pagination/Pagination";
-import ButtonPrimary from "@/components/button-primary/ButtonPrimary";
-import DateRangePicker from "@/components/DateRangePicker/DateRangePicker";
+import Pagination from "@/components/ui/pagination/Pagination";
+import ButtonPrimary from "@/components/ui/buttons/button-primary/ButtonPrimary";
+import DateRangePicker from "@/components/ui/DateRangePicker/DateRangePicker";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -31,6 +30,72 @@ const items: MenuProps["items"] = [
     label: <span className="mx-2 text-sm font-normal text-black">Z-A</span>,
   },
 ];
+const menuAction: MenuProps["items"] = [
+  {
+    label: (
+      <div className="flex items-center justify-between gap-3">
+        <span className="text-sm font-medium text-[#1B2837]">Khóa</span>
+        <div>
+          <Image
+            src={"/icons/ArrowRight.svg"}
+            alt="icon arrow right"
+            width={13}
+            height={13}
+          />
+        </div>
+      </div>
+    ),
+    key: "0",
+  },
+  {
+    label: (
+      <div className="flex items-center justify-between gap-3">
+        <span className="text-sm font-medium text-[#1B2837]">Sửa</span>
+        <div>
+          <Image
+            src={"/icons/ArrowRight.svg"}
+            alt="icon arrow right"
+            width={13}
+            height={13}
+          />
+        </div>
+      </div>
+    ),
+    key: "1",
+  },
+  {
+    label: (
+      <div className="flex items-center justify-between gap-3">
+        <span className="text-sm font-medium text-[#1B2837]">Xóa</span>
+        <div>
+          <Image
+            src={"/icons/ArrowRight.svg"}
+            alt="icon arrow right"
+            width={13}
+            height={13}
+          />
+        </div>
+      </div>
+    ),
+    key: "3",
+  },
+  {
+    label: (
+      <div className="flex items-center justify-between gap-3">
+        <span className="text-sm font-medium text-[#1B2837]">Đổi mật khẩu</span>
+        <div>
+          <Image
+            src={"/icons/ArrowRight.svg"}
+            alt="icon arrow right"
+            width={13}
+            height={13}
+          />
+        </div>
+      </div>
+    ),
+    key: "3",
+  },
+];
 /* config table data start */
 interface DataType {
   key: string;
@@ -40,6 +105,7 @@ interface DataType {
   price: number;
   time: any;
   timeSuccess: any;
+  InvoiceCodeAndProductName: any;
 }
 
 const data: DataType[] = [
@@ -64,6 +130,11 @@ const data: DataType[] = [
       detail: "12:55:09",
       date: "15/08/2022",
     },
+    InvoiceCodeAndProductName: {
+      invoiceCode: "OM_1713255586",
+      productName: "Thanh toán đơn hàng",
+      productCode: "OM_1713255586",
+    },
   },
   {
     key: "2",
@@ -85,6 +156,11 @@ const data: DataType[] = [
     timeSuccess: {
       detail: "12:55:09",
       date: "15/08/2022",
+    },
+    InvoiceCodeAndProductName: {
+      invoiceCode: "OM_1713255586",
+      productName: "Thanh toán đơn hàng",
+      productCode: "OM_1713255586",
     },
   },
   {
@@ -108,6 +184,11 @@ const data: DataType[] = [
       detail: "12:55:09",
       date: "15/08/2022",
     },
+    InvoiceCodeAndProductName: {
+      invoiceCode: "OM_1713255586",
+      productName: "Thanh toán đơn hàng",
+      productCode: "OM_1713255586",
+    },
   },
   {
     key: "4",
@@ -129,6 +210,11 @@ const data: DataType[] = [
     timeSuccess: {
       detail: "12:55:09",
       date: "15/08/2022",
+    },
+    InvoiceCodeAndProductName: {
+      invoiceCode: "OM_1713255586",
+      productName: "Thanh toán đơn hàng",
+      productCode: "OM_1713255586",
     },
   },
   {
@@ -152,6 +238,11 @@ const data: DataType[] = [
       detail: "12:55:09",
       date: "15/08/2022",
     },
+    InvoiceCodeAndProductName: {
+      invoiceCode: "OM_1713255586",
+      productName: "Thanh toán đơn hàng",
+      productCode: "OM_1713255586",
+    },
   },
   {
     key: "6",
@@ -173,6 +264,11 @@ const data: DataType[] = [
     timeSuccess: {
       detail: "12:55:09",
       date: "15/08/2022",
+    },
+    InvoiceCodeAndProductName: {
+      invoiceCode: "OM_1713255586",
+      productName: "Thanh toán đơn hàng",
+      productCode: "OM_1713255586",
     },
   },
   {
@@ -196,6 +292,11 @@ const data: DataType[] = [
       detail: "12:55:09",
       date: "15/08/2022",
     },
+    InvoiceCodeAndProductName: {
+      invoiceCode: "OM_1713255586",
+      productName: "Thanh toán đơn hàng",
+      productCode: "OM_1713255586",
+    },
   },
 ];
 
@@ -209,6 +310,7 @@ const columns: TableProps<DataType>["columns"] = [
     title: "Trạng thái",
     dataIndex: "status",
     key: "status",
+    align: "center",
   },
   {
     title: "Thẻ ATM/ Tài khoản",
@@ -216,24 +318,73 @@ const columns: TableProps<DataType>["columns"] = [
     key: "card",
   },
   {
-    title: "Số tiền",
+    title: (
+      <div className="flex items-center gap-3">
+        <span>Số tiền</span>
+        <div>
+          <Image
+            src={"/icons/arrow-down.svg"}
+            alt="arrow down"
+            width={18}
+            height={18}
+          />
+        </div>
+      </div>
+    ),
     key: "price",
     dataIndex: "price",
   },
   {
-    title: "Thời gian",
+    title: (
+      <div className="flex items-center gap-3">
+        <span>Thời gian</span>
+        <div>
+          <Image
+            src={"/icons/arrow-down.svg"}
+            alt="arrow down"
+            width={18}
+            height={18}
+          />
+        </div>
+      </div>
+    ),
     key: "time",
     dataIndex: "time",
   },
   {
-    title: "Thời gian hoàn thành",
+    title: (
+      <div className="flex items-center gap-3">
+        <span>Thời gian hoàn thành</span>
+        <div>
+          <Image
+            src={"/icons/arrow-down.svg"}
+            alt="arrow down"
+            width={18}
+            height={18}
+          />
+        </div>
+      </div>
+    ),
     key: "timeSuccess",
     dataIndex: "timeSuccess",
+  },
+  {
+    title: (
+      <span>
+        Mã hóa đơn /
+        <br />
+        Tên sản phẩm
+      </span>
+    ),
+    key: "InvoiceCodeAndProductName",
+    dataIndex: "InvoiceCodeAndProductName",
   },
   {
     title: "Thao tác",
     key: "action",
     dataIndex: "action",
+    fixed: "right",
+    align: "center",
   },
 ];
 /* config table data end */
@@ -354,7 +505,7 @@ const TransactionHistory = () => {
     info: (
       <div>
         {typeTrans.filter((_) => _.title === item.info.title)[0]?.value}
-        <p className="my-1 text-nowrap text-base font-normal text-[#525C67]">
+        <p className="text-nowrap text-base font-normal text-[#525C67]">
           <span>Mã giao dịch:</span> {item.info.code}
         </p>
         <p className="text-nowrap text-base font-normal text-[#525C67]">
@@ -369,10 +520,10 @@ const TransactionHistory = () => {
     ),
     card: (
       <div>
-        <span className="text-sm font-normal uppercase text-[#667085]">
+        <span className="text-base font-normal text-[#525C67]">
           {item.card.number}
         </span>
-        <h2 className="text-sm font-normal uppercase text-[#667085]">
+        <h2 className="text-base font-normal text-[#525C67]">
           {item.card.title}
         </h2>
       </div>
@@ -380,131 +531,143 @@ const TransactionHistory = () => {
     price: <div className="flex justify-end">{typePrice(item.price)}</div>,
     time: (
       <div>
-        <div className="text-sm font-normal text-[#1B2837]">
+        <div className="text-base font-normal text-[#1B2837]">
           {item.time.detail}
         </div>
-        <div className="text-sm font-normal text-[#1B2837]">
+        <div className="text-base font-normal text-[#1B2837]">
           {item.time.date}
         </div>
       </div>
     ),
     timeSuccess: (
       <div>
-        <div className="text-sm font-normal text-[#1B2837]">
+        <div className="text-base font-normal text-[#1B2837]">
           {item.timeSuccess.detail}
         </div>
-        <div className="text-sm font-normal text-[#1B2837]">
+        <div className="text-base font-normal text-[#1B2837]">
           {item.timeSuccess.date}
         </div>
       </div>
     ),
-    action: (
+    InvoiceCodeAndProductName: (
       <div>
-        <Link href="/transaction-history/info-transaction-history/1">
+        <div className="text-base font-normal text-[#4FAAC1]">
+          {item.InvoiceCodeAndProductName.invoiceCode}
+        </div>
+        <div className="text-base font-normal text-[#667085]">
+          {item.InvoiceCodeAndProductName.productName}
+        </div>
+        <div className="text-base font-normal text-[#667085]">
+          {item.InvoiceCodeAndProductName.productCode}
+        </div>
+      </div>
+    ),
+    action: (
+      <div className="flex justify-center">
+        <Dropdown
+          menu={{ items: menuAction }}
+          trigger={["click"]}
+          arrow
+          placement="bottomLeft"
+        >
           <Image
             alt="option"
-            src={"/icons/dots-3.png"}
-            className="h-[15px] w-[15px]"
-            width={500}
-            height={500}
+            src={"/icons/dots-3.svg"}
+            className="cursor-pointer"
+            width={18}
+            height={18}
           />
-        </Link>
+        </Dropdown>
       </div>
     ),
   }));
   return (
-    <DefaultLayout>
-      <div>
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="shadows-custom flex flex-wrap gap-3 rounded-lg bg-white p-4 ">
-            <div className="flex items-center gap-1">
-              <span className="text-color-gray-sm">Tổng giao dịch:</span>
-              <h2 className="ms-1 text-xl font-semibold text-[#4FAAC1]">261</h2>
-            </div>
-            <div className="flex items-center gap-1">
-              <span className="text-color-gray-sm">Tổng tiền giao dịch:</span>
-              <h2 className="ms-1 text-xl font-semibold text-[#31B63B]">
-                261.000.000đ
-              </h2>
-            </div>
+    <div>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="shadows-custom flex flex-wrap gap-3 rounded-lg bg-white p-4 ">
+          <div className="flex items-center gap-1">
+            <span className="text-color-gray-sm">Tổng giao dịch:</span>
+            <h2 className="ms-1 text-xl font-semibold text-[#4FAAC1]">261</h2>
           </div>
-          <div className="flex flex-wrap items-center gap-3 sm:flex-nowrap">
-            <div className="flex w-full items-end gap-3">
-              <InputSearch
-                title="Tìm kiếm theo mã"
-                placeholder="Nhập từ khoá ..."
-              />
-            </div>
-            <div className="flex w-full max-w-125 items-end gap-3 md:max-w-[351px]">
-              <div className="w-full">
-                <DateRangePicker
-                  onDateChange={handleDateChange}
-                  title="Bộ lọc tìm kiếm"
-                />
-              </div>
-              <div className="w-20">
-                <ButtonPrimary
-                  onClick={() => {}}
-                  title={"Tìm"}
-                  cl="rounded-md"
-                />
-              </div>
-            </div>
+          <div className="flex items-center gap-1">
+            <span className="text-color-gray-sm">Tổng tiền giao dịch:</span>
+            <h2 className="ms-1 text-xl font-semibold text-[#31B63B]">
+              261.000.000đ
+            </h2>
           </div>
         </div>
-        <div className="shadows-custom mt-3 overflow-hidden rounded-lg bg-white">
-          <div className="flex flex-wrap items-center justify-between gap-4 px-5 py-3">
-            <h3 className="text-lg font-medium text-[#101828]">
-              Lịch sử giao dịch
-            </h3>
-            <div className="ml-auto flex items-center gap-3">
-              <div className="me-3">
-                <Dropdown
-                  menu={{ items }}
-                  placement="bottom"
-                  trigger={["click"]}
-                  arrow
-                >
-                  <div className="flex cursor-pointer items-center">
-                    <Image
-                      src="/icons/filter-lines.svg"
-                      className="h-[18px] w-[18px]"
-                      alt="filter-lines"
-                      width={500}
-                      height={500}
-                    />
-                    <span className="ms-2 hidden text-sm font-medium text-[#344054] sm:block">
-                      Lọc nâng cao
-                    </span>
-                  </div>
-                </Dropdown>
-              </div>
-              <div>
-                <ButtonExcel />
-              </div>
-            </div>
-          </div>
-          <hr />
-          <div className="overflow-x-auto">
-            <Table
-              columns={columns}
-              dataSource={handleDataTransHistory}
-              pagination={false}
-              scroll={{ x: "max-content" }}
+        <div className="flex flex-wrap items-center gap-3 sm:flex-nowrap">
+          <div className="flex w-full items-end gap-3">
+            <InputSearch
+              title="Tìm kiếm theo mã"
+              placeholder="Nhập từ khoá ..."
             />
           </div>
+          <div className="flex w-full max-w-125 items-end gap-3 md:max-w-[351px]">
+            <div className="w-full">
+              <DateRangePicker
+                onDateChange={handleDateChange}
+                title="Bộ lọc tìm kiếm"
+              />
+            </div>
+            <div className="w-20">
+              <ButtonPrimary onClick={() => {}} title={"Tìm"} cl="rounded-md" />
+            </div>
+          </div>
         </div>
-        <div className="my-3">
-          <Pagination
-            totalItems={itemsp.length}
-            itemsPerPage={itemsPerPage}
-            currentPage={currentPage}
-            onPageChange={handlePageChange}
-            onItemsPerPageChange={handleItemsPerPageChange}
+      </div>
+      <div className="shadows-custom mt-3 overflow-hidden rounded-lg bg-white">
+        <div className="flex flex-wrap items-center justify-between gap-4 px-5 py-3">
+          <h3 className="text-lg font-medium text-[#101828]">
+            Lịch sử giao dịch
+          </h3>
+          <div className="ml-auto flex items-center gap-3">
+            <div className="me-3">
+              <Dropdown
+                menu={{ items }}
+                placement="bottom"
+                trigger={["click"]}
+                arrow
+              >
+                <div className="flex cursor-pointer items-center">
+                  <Image
+                    src="/icons/filter-lines.svg"
+                    className="h-[18px] w-[18px]"
+                    alt="filter-lines"
+                    width={500}
+                    height={500}
+                  />
+                  <span className="ms-2 hidden text-sm font-medium text-[#344054] sm:block">
+                    Lọc nâng cao
+                  </span>
+                </div>
+              </Dropdown>
+            </div>
+            <div>
+              <ButtonExcel />
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div className="overflow-x-auto">
+          <Table
+            columns={columns}
+            dataSource={handleDataTransHistory}
+            pagination={false}
+            scroll={{ x: "max-content" }}
           />
         </div>
       </div>
-    </DefaultLayout>
+      <div className="my-3">
+        <Pagination
+          totalItems={itemsp.length}
+          itemsPerPage={itemsPerPage}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+          onItemsPerPageChange={handleItemsPerPageChange}
+        />
+      </div>
+    </div>
   );
 };
 

@@ -1,24 +1,26 @@
 "use client";
-import ButtonTab from "@/components/button-tab/ButtonTab";
-import ButtonDefault from "@/components/buttonDefault/ButtonDefault";
-import Input from "@/components/input/Input";
+import ButtonTab from "@/components/ui/buttons/button-tab/ButtonTab";
+import ButtonDefault from "@/components/ui/buttons/buttonDefault/ButtonDefault";
+import Input from "@/components/ui/inputs/input/Input";
 import React, { useState } from "react";
 import Link from "next/link";
-import ButtonPrimary from "@/components/button-primary/ButtonPrimary";
+import ButtonPrimary from "@/components/ui/buttons/button-primary/ButtonPrimary";
+import Image from "next/image";
 
 const LoginPage = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
   return (
-    <div className="mt-5 flex justify-center bg-[#F5F5F8]">
+    <div className="mt-8 flex justify-center bg-[#F5F5F8]">
       <div className="min-w-96 max-w-5xl">
-        <div className="shadows-custom my-3 grid grid-cols-1 rounded-[24px] bg-[#fff] md:grid-cols-2">
+        <div className="shadows-custom mx-3 my-3 grid grid-cols-1 rounded-3xl bg-[#fff] md:grid-cols-2">
           <div className="relative hidden md:block">
-            <img
+            <Image
               src="/images/image/login-left.png"
               className="absolute left-0 top-0 rounded-tr-[20px]"
               alt="login background left"
+              width={500}
+              height={500}
             />
-
             <div className="absolute left-0 top-0 p-7">
               <img
                 src="/images/logo/logo-hpay.png"
@@ -35,6 +37,16 @@ const LoginPage = () => {
             </div>
           </div>
           <div className="p-7">
+            <div className="flex items-center justify-center md:hidden mb-3">
+              <Image
+                src="/images/logo/logo-hpay.png"
+                alt="HPay Logo"
+                className="dark:invert"
+                width={120}
+                height={50}
+                priority
+              />
+            </div>
             <div className="w-[100%] rounded-2xl bg-[#F5F5F8] pt-4 text-center">
               <h2 className="text-xl font-medium text-[#111A2C]">
                 Đăng nhập bằng tài khoản?
@@ -127,7 +139,7 @@ const LoginPage = () => {
                 <ButtonPrimary type={"submit"} title={"Đăng nhập"} />
               </div>
             </form>
-            <div className="mt-[140px] w-[350px] text-start">
+            <div className="mt-[140px] max-w-[350px] text-start">
               <p className="mb-3 text-sm font-normal text-[#000000]">
                 Trở thành HPay Business
                 <Link href={"/auth/register"} className="text-color-primary-sm">
@@ -135,12 +147,12 @@ const LoginPage = () => {
                   Đăng ký ngay!
                 </Link>
               </p>
-              <p className="text-sm font-normal text-[#898B9A] ">
+              <p className="text-wrap text-sm font-normal text-[#898B9A]">
                 Bằng cách đăng nhập vào HPay Business, tôi xác nhận rằng tôi đã
                 đọc và đồng ý với
                 <Link
                   href="#"
-                  className="text-[14px] font-normal text-[#000000]"
+                  className="text-[14px]  font-normal text-[#000000]"
                 >
                   {" "}
                   Điều khoản dịch vụ

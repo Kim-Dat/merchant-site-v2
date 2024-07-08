@@ -1,6 +1,6 @@
-import ButtonPrimary from "@/components/button-primary/ButtonPrimary";
-import ButtonDefault from "@/components/buttonDefault/ButtonDefault";
-import Input from "@/components/input/Input";
+import ButtonPrimary from "@/components/ui/buttons/button-primary/ButtonPrimary";
+import ButtonDefault from "@/components/ui/buttons/buttonDefault/ButtonDefault";
+import Input from "@/components/ui/inputs/input/Input";
 import { useStepperStore } from "@/stores/stepper.store";
 import React, { useContext } from "react";
 import { isCloseModalChangeAuthContext } from "../../page";

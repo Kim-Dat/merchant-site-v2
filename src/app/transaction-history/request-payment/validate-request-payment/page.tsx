@@ -1,12 +1,11 @@
 "use client";
-import ButtonPrimary from "@/components/button-primary/ButtonPrimary";
-import ButtonDefault from "@/components/buttonDefault/ButtonDefault";
-import DefaultLayout from "@/components/layout/DefaultLayout";
+import ButtonPrimary from "@/components/ui/buttons/button-primary/ButtonPrimary";
+import ButtonDefault from "@/components/ui/buttons/buttonDefault/ButtonDefault";
 import React from "react";
 
 const ValidateRequestPayment = () => {
   return (
-    <DefaultLayout>
+    <div>
       <div className="grid grid-cols-1 sm:grid-cols-4">
         <div className="shadows-custom flex h-50 items-center justify-center rounded-xl bg-white">
           <div className="text-center">
@@ -82,7 +81,7 @@ const ValidateRequestPayment = () => {
           </div>
         </div>
       </div>
-    </DefaultLayout>
+    </div>
   );
 };
 

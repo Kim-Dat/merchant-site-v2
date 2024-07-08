@@ -12,7 +12,9 @@ const ButtonTab = (props: IProps) => {
       className={`h-full w-full rounded-xl bg-gradient-to-br from-[#76DCFF] to-[#FF89E796] p-3`}
       onClick={onClick}
     >
-      <span className={`text-sm font-semibold text-[#FFFFFF]`}>{title}</span>
+      <span className={`text-nowrap text-sm font-semibold text-[#FFFFFF]`}>
+        {title}
+      </span>
     </button>
   );
 };

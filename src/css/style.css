@@ -143,6 +143,7 @@
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
+  color: #1b2837;
 }
 
 .custom-select .ant-select-selector {
@@ -166,4 +167,27 @@
   margin-right: 8px;
 }
 
+.ant-select-selector .ant-select-selection-item {
+  color: #bbbdc1 !important; /* Đổi màu chữ ở đây */
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+}
+.ant-select-selector {
+  font-family: "Inter", sans-serif !important;
+}
+.ant-select-item {
+  font-family: "Inter", sans-serif !important;
+}
 
+/* custom select react mutil */
+.select__control {
+  padding: 9px 3px !important;
+}
+
+/* custom upload image */
+.ant-upload {
+  width: 60px !important;
+  height: 60px !important;
+  overflow: hidden;
+}

@@ -1,9 +1,8 @@
 "use client";
-import ButtonPrimary from "@/components/button-primary/ButtonPrimary";
-import ButtonDefault from "@/components/buttonDefault/ButtonDefault";
-import Input from "@/components/input/Input";
-import DefaultLayout from "@/components/layout/DefaultLayout";
-import SelectCustom from "@/components/select/SelectCustom";
+import ButtonPrimary from "@/components/ui/buttons/button-primary/ButtonPrimary";
+import ButtonDefault from "@/components/ui/buttons/buttonDefault/ButtonDefault";
+import Input from "@/components/ui/inputs/input/Input";
+import SelectCustom from "@/components/ui/select/SelectCustom";
 import { Checkbox, Modal } from "antd";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -48,7 +47,7 @@ const AccountCreatePage = () => {
   };
 
   return (
-    <DefaultLayout>
+    <div>
       <div>
         <div className="shadows-custom rounded-lg bg-white px-6 py-8">
           <h2 className="text-color-primary-xl-medium text-center">
@@ -116,7 +115,7 @@ const AccountCreatePage = () => {
                   }
                   options={options}
                   onChange={handleChange}
-                  className="basic-multi-select"
+                  className="basic-multi-select caret-[#4faac1] "
                   classNamePrefix="select"
                 />
               </div>
@@ -433,7 +432,7 @@ const AccountCreatePage = () => {
           </div>
         </div>
       </Modal>
-    </DefaultLayout>
+    </div>
   );
 };
 

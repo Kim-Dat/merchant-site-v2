@@ -1,6 +1,6 @@
 "use client";
-import ButtonPrimary from "@/components/button-primary/ButtonPrimary";
-import ButtonDefault from "@/components/buttonDefault/ButtonDefault";
+import ButtonPrimary from "@/components/ui/buttons/button-primary/ButtonPrimary";
+import ButtonDefault from "@/components/ui/buttons/buttonDefault/ButtonDefault";
 import DefaultLayout from "@/components/layout/DefaultLayout";
 import React from "react";
 

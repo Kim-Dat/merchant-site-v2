@@ -1,7 +1,7 @@
-import ButtonPrimary from "@/components/button-primary/ButtonPrimary";
-import ButtonDefault from "@/components/buttonDefault/ButtonDefault";
-import Input from "@/components/input/Input";
-import SelectCustom from "@/components/select/SelectCustom";
+import ButtonPrimary from "@/components/ui/buttons/button-primary/ButtonPrimary";
+import ButtonDefault from "@/components/ui/buttons/buttonDefault/ButtonDefault";
+import Input from "@/components/ui/inputs/input/Input";
+import SelectCustom from "@/components/ui/select/SelectCustom";
 import { useStepperStore } from "@/stores/stepper.store";
 import React from "react";
 

@@ -22,6 +22,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     storedSidebarExpanded === null ? false : storedSidebarExpanded === "true",
   );
 
+  useEffect(() => {
+    setSidebarOpen(false);
+  }, [pathname]);
+
   // close on click outside
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
@@ -160,7 +164,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item account --> */}
 
               {/* Menu Item transaction-history start */}
-
               <li className="flex pe-2">
                 <div
                   className={`me-1 w-[4px] ${pathname?.includes("transaction-history") && "rounded-r-lg border-[1px] border-l-4 border-[#FF89E7]"} `}
@@ -265,7 +268,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   </SidebarLinkGroup>
                 </div>
               </li>
-
               {/* Menu Item transaction-history end */}
 
               {/* <!-- Menu Item bank-account --> */}
@@ -341,7 +343,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                                   href="/bank-account/check-user-bank"
                                   className={`text-ellipsis font-normal transition-all duration-500 ease-in-out hover:ml-2 hover:text-[#4FAAC1] ${pathname === "/bank-account/check-user-bank" && "text-[#4FAAC1]"}`}
                                 >
-                                 {trans("navigation.bank-account-lookup")}
+                                  {trans("navigation.bank-account-lookup")}
                                 </Link>
                               </li>
                             </ul>
@@ -358,29 +360,92 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item integration-payment --> */}
               <li className="flex pe-2">
                 <div
-                  className={`me-1 w-[4px] ${pathname?.includes("integration-payment") && "rounded-r-lg border-[1px] border-l-4 border-[#FF89E7]"} `}
+                  className={`me-1 w-[4px] ${pathname?.includes("/integration-payment") && "rounded-r-lg border-[1px] border-l-4 border-[#FF89E7]"} `}
                 ></div>
-                <Link
-                  href={"/integration-payment"}
-                  className={`group relative flex w-full items-center gap-2.5 rounded-md from-[#76DCFF] to-[#FF89E7] px-4 py-3 font-medium text-black duration-300 hover:bg-gradient-to-r hover:text-white ${
-                    pathname?.includes("integration-payment") &&
-                    "bg-gradient-to-r text-white"
-                  }`}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="fill-current"
-                    width="20"
-                    height="20"
-                    fill="none"
-                    viewBox="0 0 640 512"
+                <div className="w-full">
+                  <SidebarLinkGroup
+                    activeCondition={pathname?.includes("/integration-payment")}
                   >
-                    <path d="M58.9 42.1c3-6.1 9.6-9.6 16.3-8.7L320 64 564.8 33.4c6.7-.8 13.3 2.7 16.3 8.7l41.7 83.4c9 17.9-.6 39.6-19.8 45.1L439.6 217.3c-13.9 4-28.8-1.9-36.2-14.3L320 64 236.6 203c-7.4 12.4-22.3 18.3-36.2 14.3L37.1 170.6c-19.3-5.5-28.8-27.2-19.8-45.1L58.9 42.1zM321.1 128l54.9 91.4c14.9 24.8 44.6 36.6 72.5 28.6L576 211.6v167c0 22-15 41.2-36.4 46.6l-204.1 51c-10.2 2.6-20.9 2.6-31 0l-204.1-51C79 419.7 64 400.5 64 378.5v-167L191.6 248c27.8 8 57.6-3.8 72.5-28.6L318.9 128h2.2z" />
-                  </svg>
-                  {trans("navigation.payment-integrations")}
-                </Link>
+                    {(handleClick, open) => {
+                      return (
+                        <React.Fragment>
+                          <div
+                            className={`group relative flex w-full cursor-pointer items-center gap-2.5 rounded-md from-[#76DCFF] to-[#FF89E7] px-4 py-3 font-medium text-black duration-300 ease-in-out hover:bg-gradient-to-r hover:text-white ${
+                              pathname.includes("/integration-payment") &&
+                              "bg-gradient-to-r text-white"
+                            }`}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              sidebarExpanded
+                                ? handleClick()
+                                : setSidebarExpanded(true);
+                            }}
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="fill-current"
+                              width="20"
+                              height="20"
+                              fill="none"
+                              viewBox="0 0 640 512"
+                            >
+                              <path d="M58.9 42.1c3-6.1 9.6-9.6 16.3-8.7L320 64 564.8 33.4c6.7-.8 13.3 2.7 16.3 8.7l41.7 83.4c9 17.9-.6 39.6-19.8 45.1L439.6 217.3c-13.9 4-28.8-1.9-36.2-14.3L320 64 236.6 203c-7.4 12.4-22.3 18.3-36.2 14.3L37.1 170.6c-19.3-5.5-28.8-27.2-19.8-45.1L58.9 42.1zM321.1 128l54.9 91.4c14.9 24.8 44.6 36.6 72.5 28.6L576 211.6v167c0 22-15 41.2-36.4 46.6l-204.1 51c-10.2 2.6-20.9 2.6-31 0l-204.1-51C79 419.7 64 400.5 64 378.5v-167L191.6 248c27.8 8 57.6-3.8 72.5-28.6L318.9 128h2.2z" />
+                            </svg>
+                            {trans("navigation.payment-integrations")}
+                            <svg
+                              className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current transition-all duration-500 ${
+                                open && "rotate-180"
+                              }`}
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                                d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                                fill=""
+                              />
+                            </svg>
+                          </div>
+                          {/* <!-- Dropdown Menu Start --> */}
+                          <div
+                            className={`ease max-h-0 transform overflow-hidden transition-all duration-700 ${
+                              open && "max-h-39"
+                            }`}
+                          >
+                            <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-11.5 ">
+                              <li>
+                                <Link
+                                  href="/integration-payment/merchant-list"
+                                  className={`text-ellipsis font-normal transition-all duration-500 ease-in-out hover:ml-2 hover:text-[#4FAAC1] ${pathname === "/integration-payment/merchant-list" && "text-[#4FAAC1]"}`}
+                                >
+                                  {trans("navigation.list-of-merchants")}
+                                </Link>
+                              </li>
+                              <li>
+                                <Link
+                                  href="/integration-payment/merchant-create"
+                                  className={`text-ellipsis font-normal transition-all duration-500 ease-in-out hover:ml-2 hover:text-[#4FAAC1] ${pathname === "/bank-account/check-user-bank" && "text-[#4FAAC1]"}`}
+                                >
+                                  {trans(
+                                    "navigation.Sign-up-for-payment-integration",
+                                  )}
+                                </Link>
+                              </li>
+                            </ul>
+                          </div>
+                          {/* <!-- Dropdown Menu End --> */}
+                        </React.Fragment>
+                      );
+                    }}
+                  </SidebarLinkGroup>
+                </div>
               </li>
               {/* <!-- Menu Item integration-payment --> */}
+
               <li className="flex-grow border-t border-[#E0E0E0]"></li>
 
               {/* <!-- Menu Item withdraw --> */}
@@ -440,26 +505,87 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item ibft --> */}
               <li className="flex pe-2">
                 <div
-                  className={`me-1 w-[4px] ${pathname?.includes("ibft") && "rounded-r-lg border-[1px] border-l-4 border-[#FF89E7]"} `}
+                  className={`me-1 w-[4px] ${pathname?.includes("/integration-payment") && "rounded-r-lg border-[1px] border-l-4 border-[#FF89E7]"} `}
                 ></div>
-                <Link
-                  href={"/ibft"}
-                  className={`group relative flex w-full items-center gap-2.5 rounded-md from-[#76DCFF] to-[#FF89E7] px-4 py-3 font-medium text-black duration-300 hover:bg-gradient-to-r hover:text-white ${
-                    pathname?.includes("ibft") && "bg-gradient-to-r text-white"
-                  }`}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="fill-current"
-                    width="20"
-                    height="20"
-                    fill="none"
-                    viewBox="0 0 640 512"
+                <div className="w-full">
+                  <SidebarLinkGroup
+                    activeCondition={pathname?.includes("/integration-payment")}
                   >
-                    <path d="M58.9 42.1c3-6.1 9.6-9.6 16.3-8.7L320 64 564.8 33.4c6.7-.8 13.3 2.7 16.3 8.7l41.7 83.4c9 17.9-.6 39.6-19.8 45.1L439.6 217.3c-13.9 4-28.8-1.9-36.2-14.3L320 64 236.6 203c-7.4 12.4-22.3 18.3-36.2 14.3L37.1 170.6c-19.3-5.5-28.8-27.2-19.8-45.1L58.9 42.1zM321.1 128l54.9 91.4c14.9 24.8 44.6 36.6 72.5 28.6L576 211.6v167c0 22-15 41.2-36.4 46.6l-204.1 51c-10.2 2.6-20.9 2.6-31 0l-204.1-51C79 419.7 64 400.5 64 378.5v-167L191.6 248c27.8 8 57.6-3.8 72.5-28.6L318.9 128h2.2z" />
-                  </svg>
-                  {trans("navigation.ibft-disbursement")}
-                </Link>
+                    {(handleClick, open) => {
+                      return (
+                        <React.Fragment>
+                          <div
+                            className={`group relative flex w-full cursor-pointer items-center gap-2.5 rounded-md from-[#76DCFF] to-[#FF89E7] px-4 py-3 font-medium text-black duration-300 ease-in-out hover:bg-gradient-to-r hover:text-white ${
+                              pathname.includes("/integration-payment") &&
+                              "bg-gradient-to-r text-white"
+                            }`}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              sidebarExpanded
+                                ? handleClick()
+                                : setSidebarExpanded(true);
+                            }}
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="fill-current"
+                              width="20"
+                              height="20"
+                              fill="none"
+                              viewBox="0 0 640 512"
+                            >
+                              <path d="M58.9 42.1c3-6.1 9.6-9.6 16.3-8.7L320 64 564.8 33.4c6.7-.8 13.3 2.7 16.3 8.7l41.7 83.4c9 17.9-.6 39.6-19.8 45.1L439.6 217.3c-13.9 4-28.8-1.9-36.2-14.3L320 64 236.6 203c-7.4 12.4-22.3 18.3-36.2 14.3L37.1 170.6c-19.3-5.5-28.8-27.2-19.8-45.1L58.9 42.1zM321.1 128l54.9 91.4c14.9 24.8 44.6 36.6 72.5 28.6L576 211.6v167c0 22-15 41.2-36.4 46.6l-204.1 51c-10.2 2.6-20.9 2.6-31 0l-204.1-51C79 419.7 64 400.5 64 378.5v-167L191.6 248c27.8 8 57.6-3.8 72.5-28.6L318.9 128h2.2z" />
+                            </svg>
+                            {trans("navigation.ibft-disbursement")}
+                            <svg
+                              className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current transition-all duration-500 ${
+                                open && "rotate-180"
+                              }`}
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                                d="M4.41107 6.9107C4.73651 6.58527 5.26414 6.58527 5.58958 6.9107L10.0003 11.3214L14.4111 6.91071C14.7365 6.58527 15.2641 6.58527 15.5896 6.91071C15.915 7.23614 15.915 7.76378 15.5896 8.08922L10.5896 13.0892C10.2641 13.4147 9.73651 13.4147 9.41107 13.0892L4.41107 8.08922C4.08563 7.76378 4.08563 7.23614 4.41107 6.9107Z"
+                                fill=""
+                              />
+                            </svg>
+                          </div>
+                          {/* <!-- Dropdown Menu Start --> */}
+                          <div
+                            className={`ease max-h-0 transform overflow-hidden transition-all duration-700 ${
+                              open && "max-h-39"
+                            }`}
+                          >
+                            <ul className="mb-5.5 mt-4 flex flex-col gap-2.5 pl-11.5 ">
+                              <li>
+                                <Link
+                                  href="/ibft"
+                                  className={`text-ellipsis font-normal transition-all duration-500 ease-in-out hover:ml-2 hover:text-[#4FAAC1] ${pathname === "/bank-account" && "text-[#4FAAC1]"}`}
+                                >
+                                  {trans("navigation.firm-banking")}
+                                </Link>
+                              </li>
+                              <li>
+                                <Link
+                                  href="/bank-account/check-user-bank"
+                                  className={`text-ellipsis font-normal transition-all duration-500 ease-in-out hover:ml-2 hover:text-[#4FAAC1] ${pathname === "/bank-account/check-user-bank" && "text-[#4FAAC1]"}`}
+                                >
+                                  {trans("navigation.firm-banking-in-batches")}
+                                </Link>
+                              </li>
+                            </ul>
+                          </div>
+                          {/* <!-- Dropdown Menu End --> */}
+                        </React.Fragment>
+                      );
+                    }}
+                  </SidebarLinkGroup>
+                </div>
               </li>
               {/* <!-- Menu Item ibft --> */}
 

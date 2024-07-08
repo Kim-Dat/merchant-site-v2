@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import { InboxOutlined } from "@ant-design/icons";
 import type { UploadProps } from "antd";
@@ -101,9 +102,8 @@ const FileUpload: React.FC<fileProps> = ({ id }) => {
               <Image
                 src="/icons/plus.svg"
                 alt="plus"
-                className="h-[28px] w-[28px]"
-                width={500}
-                height={500}
+                width={28}
+                height={28}
               />
             </>
           )}

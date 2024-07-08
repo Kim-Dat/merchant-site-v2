@@ -2,7 +2,7 @@
 import React from "react";
 import Lottie from "lottie-react";
 import successAnimation from "@/animation/icons/success-animation.json";
-import ButtonPrimary from "@/components/button-primary/ButtonPrimary";
+import ButtonPrimary from "@/components/ui/buttons/button-primary/ButtonPrimary";
 import { useStepperStore } from "@/stores/stepper.store";
 import { useRouter } from "next/navigation";
 

@@ -22,7 +22,9 @@
         "ibft-disbursement": "iBFT Disbursement",
         "firm-banking": "Firm banking",
         "firm-banking-in-batches": "Firm banking in batches",
-        "user-guide": "User guide"
+        "user-guide": "User guide",
+        "list-of-merchants": "list of merchants",
+        "Sign-up-for-payment-integration": "Sign up for payment integration"
     },
     "home": {
         "total-transactions" : "Total transactions",
