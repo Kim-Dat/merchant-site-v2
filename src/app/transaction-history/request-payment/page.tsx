@@ -1,12 +1,13 @@
 "use client";
-import SelectCustom from "@/components/ui/select/SelectCustom";
-import ButtonPrimary from "@/components/ui/buttons/button-primary/ButtonPrimary";
-import InputNumber from "@/components/ui/inputs/input-number/InputNumber";
-import Input from "@/components/ui/inputs/input/Input";
+import SelectCustom from "@/app/test/page";
+import ButtonPrimary from "@/components/button-primary/ButtonPrimary";
+import InputNumber from "@/components/input-number/InputNumber";
+import Input from "@/components/input/Input";
 import DefaultLayout from "@/components/layout/DefaultLayout";
 import { Checkbox } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import React, { useState } from "react";
+
 const RequestPayment = () => {
   const [value, setValue] = useState("");
   const optionMerchant = [
