@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 type ButtonDefaultProps = {
-  onClick?: () => void;
+  onClick?: any;
   title: string;
   href?: string;
 };
@@ -15,8 +15,8 @@ const ButtonDefault: React.FC<ButtonDefaultProps> = ({
   if (href) {
     return (
       <Link href={href} legacyBehavior className="w-[100%]">
-        <a className="block w-[100%] rounded-xl bg-[#E2E8ED99] p-2 text-center hover:bg-gray-300">
-          <span className="text-nowrap text-sm font-normal text-[#111A2C]">
+        <a className="block w-[100%] rounded-xl bg-[#E2E8ED99] p-2 text-center shadow-md hover:bg-gray-300">
+          <span className="text-nowrap text-base font-normal text-[#111A2C]">
             {title}
           </span>
         </a>
@@ -27,10 +27,10 @@ const ButtonDefault: React.FC<ButtonDefaultProps> = ({
   return (
     <button
       type="button"
-      className="h-full w-full rounded-xl bg-[#E2E8ED99] p-2 hover:bg-gray-300"
+      className="h-full w-full rounded-xl bg-[#E2E8ED99] p-2 shadow-md hover:bg-gray-300"
       onClick={onClick}
     >
-      <span className="text-nowrap text-sm font-normal text-[#111A2C]">
+      <span className="text-nowrap text-base font-normal text-[#111A2C]">
         {title}
       </span>
     </button>

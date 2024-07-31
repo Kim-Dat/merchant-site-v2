@@ -18,7 +18,7 @@ const ButtonPrimary: React.FC<ButtonPrimaryProps> = ({
     return (
       <Link href={href} legacyBehavior className="w-[100%]">
         <a
-          className={`block w-[100%] ${cl ? cl : "rounded-xl"} bg-[#4FAAC1] p-2 text-center transition-all hover:bg-[#C0E3EC]`}
+          className={`block w-[100%] ${cl ? cl : "rounded-xl"} bg-[#4FAAC1] p-2 text-center shadow-md transition-all hover:bg-[#C0E3EC]`}
         >
           <span className="text-base font-medium text-[#FBFBFB]">{title}</span>
         </a>
@@ -27,7 +27,7 @@ const ButtonPrimary: React.FC<ButtonPrimaryProps> = ({
   }
   return (
     <button
-      className={`h-auto w-[100%] ${cl ? cl : "rounded-xl"} bg-[#4FAAC1] p-2 transition-all duration-200 hover:bg-[#C0E3EC]`}
+      className={`h-auto w-[100%] ${cl ? cl : "rounded-xl"} bg-[#4FAAC1] p-2 shadow-md transition-all duration-200 hover:bg-[#C0E3EC]`}
       onClick={onClick}
       type={type}
     >

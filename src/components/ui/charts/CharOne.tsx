@@ -154,7 +154,7 @@ const ChartOne: React.FC = () => {
 
   return (
     <div className="shadows-custom rounded-lg bg-white *:col-span-12 xl:col-span-8">
-      <div id="chartOne" className="mx-2">
+      <div id="chartOne" className="overflow-hidden">
         <ReactApexChart
           options={options}
           series={state.series}

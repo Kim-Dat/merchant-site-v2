@@ -2,7 +2,7 @@
 import { ApexOptions } from "apexcharts";
 import React, { useState } from "react";
 import ReactApexChart from "react-apexcharts";
-import ButtonPrimary from "../ui/buttons/button-primary/ButtonPrimary";
+import ButtonPrimary from "@/components/ui/buttons/button-primary/ButtonPrimary";
 import { useTranslation } from "react-i18next";
 
 interface ChartThreeState {
@@ -90,7 +90,7 @@ const ChartThree: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-screen-xsm gap-y-3 mx-auto">
+      <div className="mx-auto max-w-screen-xsm gap-y-3">
         <div className="w-full">
           <div className="flex w-full items-center">
             <span className="mr-2 block h-4 w-full max-w-4 rounded-full bg-[#71E77A]"></span>

@@ -1,10 +1,8 @@
-"use client"
+"use client";
 import React, { useState } from "react";
-import { InboxOutlined } from "@ant-design/icons";
 import type { UploadProps } from "antd";
 import { Upload, message } from "antd";
 import Image from "next/image";
-import { toast } from "react-toastify";
 
 const { Dragger } = Upload;
 
@@ -72,7 +70,7 @@ const FileUpload: React.FC<fileProps> = ({ id }) => {
             <Image
               src="/icons/edit-image.svg"
               alt="close"
-              className="absolute -top-5 right-5 h-10 w-10 cursor-pointer"
+              className="absolute -top-5 right-5 z-1 h-10 w-10 cursor-pointer"
               width={500}
               height={500}
             />
@@ -87,25 +85,25 @@ const FileUpload: React.FC<fileProps> = ({ id }) => {
             src="/icons/close-image.svg"
             alt="close"
             onClick={() => setImageUrl(null)}
-            className="absolute -right-5 -top-5 h-10 w-10 cursor-pointer"
+            className="absolute -right-5 -top-5 h-10 w-10 z-1 cursor-pointer"
             width={500}
             height={500}
           />
         </div>
       )}
       <Dragger {...props} className="custom-dragger">
-        <div className="flex w-full items-center justify-center">
+        <div className="flex h-full w-full items-center justify-center">
           {imageUrl ? (
-            <img src={imageUrl} alt="uploaded" style={{ maxWidth: "100%" }} />
-          ) : (
-            <>
+            <div className="relative h-full w-full">
               <Image
-                src="/icons/plus.svg"
-                alt="plus"
-                width={28}
-                height={28}
+                src={imageUrl}
+                className="h-full w-full object-contain"
+                alt="uploaded"
+                layout="fill"
               />
-            </>
+            </div>
+          ) : (
+            <Image src="/icons/plus.svg" alt="plus" width={28} height={28} />
           )}
         </div>
       </Dragger>

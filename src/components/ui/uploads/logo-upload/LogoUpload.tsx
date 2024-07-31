@@ -76,7 +76,7 @@ const LogoUpload: React.FC = () => {
   };
 
   return (
-    <Flex className="flex items-center">
+    <Flex className="flex items-center cs-upload_logo gap-3">
       <Upload
         name="avatar"
         listType="picture-card"

@@ -12,7 +12,7 @@ const ButtonDelete: React.FC<ButtonDeleteProps> = ({ onClick, title }) => {
       className="w-[100%] rounded-xl bg-[#e22831] p-2 hover:bg-[#fc6d74]"
       onClick={onClick}
     >
-      <span className="text-sm font-normal text-white">{title}</span>
+      <span className="text-base font-normal text-white">{title}</span>
     </button>
   );
 };

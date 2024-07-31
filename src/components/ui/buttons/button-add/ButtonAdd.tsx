@@ -13,8 +13,8 @@ const ButtonAdd: React.FC<ButtonAddProps> = ({
 }) => {
   if (href) {
     return (
-      <Link href={href} legacyBehavior className="h-full w-full">
-        <a className="flex min-w-[108px] items-center justify-center rounded-lg bg-[#4FAAC1] px-4 py-2 hover:bg-[#6db7c9]">
+      <Link href={href} legacyBehavior className="h-full w-full ">
+        <a className="flex min-w-[108px] items-center justify-center rounded-lg bg-[#4FAAC1] px-4 py-2 shadow-md hover:bg-[#6db7c9]">
           <Image
             src="/icons/plus-small.svg"
             className="min-w-[20px]"

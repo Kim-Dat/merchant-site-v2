@@ -1,9 +1,18 @@
 "use client";
-
 import React, { useState } from "react";
 import CurrencyInput from "react-currency-input-field";
 
-const InputNumber: React.FC = () => {
+type propsInput = {
+  max: number;
+  min: number;
+  label: string;
+  messMax: string;
+  messMin: string;
+  isRequired?: boolean;
+};
+
+const InputNumber: React.FC<propsInput> = (props) => {
+  const { max, min, label, messMax, messMin, isRequired = false } = props;
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleValueChange = (
@@ -21,14 +30,13 @@ const InputNumber: React.FC = () => {
     }
 
     const numericValue = parseFloat(value);
-    if (numericValue < 2000) {
-      setErrorMessage("Số tiền không được nhỏ hơn 2.000 đ.");
-    } else if (numericValue > 500000000) {
-      setErrorMessage("Số tiền không được lớn hơn 500.000.000 đ.");
+    if (numericValue < min) {
+      setErrorMessage(messMin);
+    } else if (numericValue > max) {
+      setErrorMessage(messMax);
     } else {
       setErrorMessage("");
     }
-    console.log(value, name, values);
   };
 
   return (
@@ -39,6 +47,7 @@ const InputNumber: React.FC = () => {
           name="input-name"
           className={`peer block w-full appearance-none rounded-xl border-[1.5px] ${errorMessage ? "border-red" : "border-gray-200"} bg-gray-50 px-3 pb-2.5 pt-6 text-sm font-medium text-gray-900 caret-[#4faac1] focus:${errorMessage ? "border-red" : "border-gray-300"} focus:outline-none focus:ring-0`}
           placeholder=""
+          suffix=" đ"
           defaultValue={null}
           decimalsLimit={2}
           maxLength={19}
@@ -54,17 +63,12 @@ const InputNumber: React.FC = () => {
             errorMessage
           ) : (
             <>
-              {"Số tiền yêu cầu thanh toán"}{" "}
-              {true && <span className="text-[#FF3C3C]">*</span>}
+              {label}
+              {isRequired && <span className="text-[#FF3C3C]">*</span>}
             </>
           )}
         </label>
       </div>
-      {/* {errorMessage && (
-        <p className="absolute -bottom-5 left-0 text-xs font-normal text-[#FF1717]">
-          {errorMessage}
-        </p>
-      )} */}
     </div>
   );
 };

@@ -3,7 +3,7 @@ import React from "react";
 
 const ButtonExcel = () => {
   return (
-    <button className="flex min-w-[108px] items-center justify-center rounded-lg border-2 px-4 py-2 duration-200 hover:bg-gray-200">
+    <button className="flex min-w-[108px] shadow-md items-center justify-center rounded-lg border px-4 py-2 duration-200 hover:bg-gray-200">
       <Image
         src="/icons/download-cloud-02.svg"
         className="h-[18px] w-[18px]"

@@ -23,7 +23,7 @@ const Input: React.FC<InputProps> = ({
         inputClass:
           "block rounded-xl caret-[#4faac1] px-3.5 pb-2.5 pt-6 font-medium w-full text-sm text-gray-900 bg-gray-50 border-[1.5px] border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-300 peer",
         labelClass:
-          "absolute text-sm text-gray-600 duration-300 transform -translate-y-2 scale-75 top-4 z-10 origin-[0] start-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0.5 peer-focus:scale-75 peer-focus:-translate-y-2 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto",
+          "absolute text-sm text-gray-600 duration-300 transform -translate-y-2 scale-75 top-3.5 z-10 origin-[0] start-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0.5 peer-focus:scale-75 peer-focus:-translate-y-2 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto",
       },
     },
 
